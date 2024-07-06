@@ -30,6 +30,10 @@
   #include "./module_skia.h"
 #endif // BLEND2D_APPS_ENABLE_SKIA
 
+#if defined(BLEND2D_APPS_ENABLE_PLUTOVG)
+  #include "./module_plutovg.h"
+#endif // BLEND2D_APPS_ENABLE_PLUTOVG
+
 #define ARRAY_SIZE(X) uint32_t(sizeof(X) / sizeof(X[0]))
 
 namespace blbench {
@@ -466,6 +470,14 @@ int BenchApp::run() {
 #if defined(BLEND2D_APPS_ENABLE_SKIA)
     if (!_disableSkia) {
       mod = createSkiaModule();
+      runModule(*mod, params, json);
+      delete mod;
+    }
+#endif
+
+#if defined(BLEND2D_APPS_ENABLE_PLUTOVG)
+    if (!_disableSkia) {
+      mod = createPlutovgModule();
       runModule(*mod, params, json);
       delete mod;
     }

@@ -243,6 +243,8 @@ set(BLEND2D_BENCH_SRC
   bl_bench/module_qt.h
   bl_bench/module_skia.cpp
   bl_bench/module_skia.h
+  bl_bench/module_plutovg.cpp
+  bl_bench/module_plutovg.h
   bl_bench/shapes_data.cpp
   bl_bench/shapes_data.h
 )
